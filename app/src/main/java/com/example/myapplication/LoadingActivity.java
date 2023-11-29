@@ -8,7 +8,9 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.util.LogPrinter;
 import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebResourceRequest;
@@ -45,7 +47,19 @@ public class LoadingActivity extends AppCompatActivity {
     private ImageView img;
     public String token;
     private static User me = new User();
+    MainActivity2 mainActivity2;
 
+
+    Handler loginHandler = new Handler(message -> {
+        Bundle bundle = message.getData();
+        boolean isOK = bundle.getBoolean("LOGIN");
+        if (isOK) {
+            startActivity(new Intent(mainActivity2, HomeActivity.class));
+            mainActivity2.finish();
+        }
+
+        return false;
+    });
 
     @Override
     //quay trở về trang trước
@@ -211,7 +225,7 @@ public class LoadingActivity extends AppCompatActivity {
                             Toast.makeText(LoadingActivity.this, token, Toast.LENGTH_SHORT).show();
                             Toast.makeText(LoadingActivity.this, "Token success", Toast.LENGTH_SHORT).show();
                             TextView text = findViewById(R.id.text_wait);
-                            text.setText("Success");
+                            text.setText(R.string.success);
                             progressBar.setVisibility(View.GONE);
                         }
                         catch (Exception e){

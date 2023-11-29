@@ -7,10 +7,10 @@ import android.graphics.drawable.Drawable;
 
 import androidx.core.content.res.ResourcesCompat;
 
+import com.example.myapplication.R;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
-import com.example.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,8 +80,8 @@ public class Device {
 //
 //        return attributeList;
 //    }
-
-    // Get required attributes
+//
+//    // Get required attributes
 //    public List<Attribute> getRequiredAttributes() {
 //        List<Attribute> attributeList = new ArrayList<>();
 //
@@ -126,8 +126,8 @@ public class Device {
 //
 //        return R.drawable.ic_iot;
 //    }
-
-    // Get icon drawable
+//
+//    // Get icon drawable
 //    public Drawable getIconDrawable(Context context, String deviceType, int colorTint) {
 //        int resId = getIconRes(deviceType);
 //        Drawable icon = ResourcesCompat.getDrawable(context.getResources(), resId, null);
@@ -137,7 +137,7 @@ public class Device {
 //        return icon;
 //    }
 
-    // Get icon bitmap (show on Maps)
+//    // Get icon bitmap (show on Maps)
 //    public Bitmap getIconPinBitmap(Context context, int resId) {
 //        // Get icon drawable from resId
 //        Drawable drawable = ResourcesCompat.getDrawable(context.getResources(), resId, null);
@@ -158,12 +158,12 @@ public class Device {
 //
 //        return pin;
 //    }
-
-    public Device getParent() {
-        if (path.size() > 1) {
-            return getDeviceById(path.get(path.size() - 2));
-        }
-
-        return null;
-    }
+//
+//    public Device getParent() {
+//        if (path.size() > 1) {
+//            return getDeviceById(path.get(path.size() - 2));
+//        }
+//
+//        return null;
+//    }
 }

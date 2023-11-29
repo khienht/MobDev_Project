@@ -1,5 +1,7 @@
 package com.example.myapplication.RestAPI;
 
+import com.example.myapplication.Model.Device;
+import com.example.myapplication.Model.Role;
 import com.example.myapplication.Model.User;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -33,5 +35,14 @@ public interface APIInterface {
     // Get user info
     @GET("api/master/user/user")
     Call<User> getUserInfo();
+
+    // Get user roles
+    @GET("api/master/user/userRoles")
+    Call<List<Role>> getUserRoles();
+
+    // Get all devices
+    @Headers("Content-Type: application/json")
+    @POST("api/master/asset/query")
+    Call<List<Device>> queryDevices(@Body JsonObject body);
 
 }
